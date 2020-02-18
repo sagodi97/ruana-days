@@ -1,8 +1,21 @@
-class WeatherModel {
+class RuanaLogic {
   int temp;
   int condition;
+  double windSpeed;
 
-  WeatherModel({this.condition, this.temp});
+  RuanaLogic({this.condition, this.temp, this.windSpeed});
+
+  bool isItARuanaDay() {
+    if (temp > 10 && temp < 20 && condition > 700) {
+      if (windSpeed < 10) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+    return false;
+  }
+
   String getWeatherIcon() {
     if (condition < 300) {
       return '🌩';
@@ -28,8 +41,8 @@ class WeatherModel {
       return 'It\'s 🧊🍺 time, no need for ruana today';
     } else if (temp > 20) {
       return 'Time for shorts and 👕';
-    } else if (temp > 10 && condition > 700) {
-      return 'That\'s right ladies and gentlement, it is ruana day';
+    } else if (this.isItARuanaDay()) {
+      return 'That\'s y\'all, it is ruana day';
     } else if (temp < 10) {
       return 'Too cold for a ruana :( , you\'ll need 🧣 and 🧤';
     } else {
