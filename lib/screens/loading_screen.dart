@@ -25,7 +25,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
     var weatherData =
         await weather.fetchCurrentWeatherData(location.lat, location.long);
 
-    Navigator.push(context, MaterialPageRoute(builder: (context) {
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
       return LocationScreen(
         weatherData: weatherData,
       );
